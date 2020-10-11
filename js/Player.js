@@ -9,14 +9,20 @@ class Player {
     // the leftmost x position of the image.
     this.x = 2 * PLAYER_WIDTH;
 
+    this.bulletsArray = []
+
     // The y position never changes, so we don't need to store it in a property. It represents the y position of the top of the
     // hamburger. The y position is the distance from the top margin of the browsing area.
     const y = GAME_HEIGHT - PLAYER_HEIGHT - 10;
 
+    this.lives = 0
+    
+    this.root = root
+
     // We create a DOM node. We will be updating the DOM node every time we move the player, so we store a reference to the
     // DOM node in a property.
     this.domElement = document.createElement('img');
-    this.domElement.src = 'images/player.png';
+    this.domElement.src = 'images/player1.png';
     this.domElement.style.position = 'absolute';
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = ` ${y}px`;
@@ -40,5 +46,10 @@ class Player {
       this.x = this.x + PLAYER_WIDTH;
     }
     this.domElement.style.left = `${this.x}px`;
+  }
+
+  //fire 
+  fire() {
+    this.bulletsArray.push(new Bullets(this.root, this.x + PLAYER_WIDTH/3, GAME_HEIGHT - PLAYER_HEIGHT))
   }
 }

@@ -1,12 +1,20 @@
 <html>
   <head>
     <title>Nyan Kat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <div id="app"></div>
+    <p id="instructions" class="text instruction">Don't let the mean invaders get you! Use the arrows to move right or left and the space bar to shoot (it'll give you a bit of extra time but you'll ultimately get less points). Catch 10 hearts to get an extra life</p>
+    <button id="start">start</button>
+    <button id="restart">try again</button>
+    <div class="game" id="app"></div>
     <script src="js/data.js"></script>
+    <script src="js/Friend.js"></script>
     <script src="js/Enemy.js"></script>
     <script src="js/engine-utilities.js"></script>
+    <script src="js/bullets.js "></script>
+    <script src="js/Text.js"></script>
     <script src="js/Engine.js"></script>
     <script src="js/Player.js"></script>
     <script src="js/main.js"></script>

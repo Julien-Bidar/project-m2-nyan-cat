@@ -34,6 +34,31 @@ const nextEnemySpot = (enemies) => {
   return candidate;
 };
 
+
+
+
+const nextFriendSpot = (friends) => {
+  
+  const friendSpots = GAME_WIDTH / ENEMY_WIDTH;
+
+
+  const spotsTakenFriend = [false, false, false, false, false];
+  friends.forEach((friend) => {
+    spotsTakenFriend[friend.spot] = true;
+  });
+
+
+  let candidateFriend = undefined;
+  while (candidateFriend === undefined || spotsTakenFriend[candidateFriend]) {
+    candidateFriend = Math.floor(Math.random() * friendSpots);
+  }
+
+  return candidateFriend;
+};
+
+
+
+
 // addBackground contains all the logic to display the starry background of the game.
 // It is a variable that refers to a function.
 // The function takes one parameter
@@ -43,7 +68,7 @@ const addBackground = (root) => {
   const bg = document.createElement('img');
 
   // We set its src attribute and the height and width CSS attributes
-  bg.src = 'images/stars.png';
+  bg.src = 'images/background.gif';
   bg.style.height = `${GAME_HEIGHT}px`;
   bg.style.width = `${GAME_WIDTH}px`;
 
@@ -62,5 +87,5 @@ const addBackground = (root) => {
   whiteBox.style.height = `${ENEMY_HEIGHT}px`;
   whiteBox.style.width = `${GAME_WIDTH}px`;
   whiteBox.style.background = '#fff';
-  root.append(whiteBox);
+  //root.append(whiteBox);
 };
