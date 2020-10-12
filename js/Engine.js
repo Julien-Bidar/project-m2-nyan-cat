@@ -172,6 +172,10 @@ class Engine {
               enemy.destroyed = true
               enemy.root.removeChild(enemy.domElement)
             })
+            this.player.bulletsArray.forEach((bullet) => {
+              bullet.destroyed = true
+              bullet.root.removeChild(bullet.domElement)
+            })
             gotcha = true
           }
       }
